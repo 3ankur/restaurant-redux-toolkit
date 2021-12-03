@@ -22,10 +22,7 @@ function ReservationList() {
     (state: RootState) => state.reservations.value
   );
   const dispatch = useDispatch();
-  console.log(reservations);
-
   const addNewReservation = () => {
-    console.log(nameText?.current?.value);
     if (nameText?.current?.value) {
       dispatch(
         addReservation({
@@ -38,7 +35,6 @@ function ReservationList() {
   };
 
   const addDining = (reservation: ReservationEntity) => {
-    console.log(reservation);
     dispatch(removeReservation(reservation));
     dispatch(
       addCustomerDining({
@@ -50,12 +46,13 @@ function ReservationList() {
 
   return (
     <div className="reservation-list-container">
-      {reservations.map((item) => {
+      {reservations.map((item,idx) => {
         return (
           <div
             key={item?.id}
             onClick={() => addDining(item)}
             className="reservation-name"
+            role={`reserved_${idx}`}
           >
             {item.name}
           </div>

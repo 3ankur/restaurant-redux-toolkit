@@ -24,8 +24,8 @@ pipeline {
         }
         stage("Deploy") {
             steps {
-                sh " rm -rf /home/www-myapp | mkdir /home/www-myapp"
-                sh " cp -r ${WORKSPACE}/build/ /home/www-myapp"
+               // sh " rm -rf /home/www-myapp | mkdir /home/www-myapp"
+                sh " cp -r ${WORKSPACE}/build/ /home/"
             }
         }
     }

@@ -5,8 +5,8 @@ pipeline {
          stage("Unit Tests") {
             steps {
                 sh "node -v"
-                sh "yarn install"
                 sh "npm install -g yarn"
+                sh "yarn install"
                 sh "npm run test"
             }
         }

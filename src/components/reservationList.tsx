@@ -8,14 +8,7 @@ import {
   ReservationEntity,
 } from "../features/reservationSlice";
 
-const list = [
-  {
-    name: "Salena Gomez",
-  },
-  {
-    name: "Ryan Mitchel",
-  },
-];
+
 function ReservationList() {
   const nameText = useRef<HTMLInputElement>(null);
   const reservations = useSelector(

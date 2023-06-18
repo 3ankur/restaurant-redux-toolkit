@@ -45,7 +45,8 @@ function ReservationList() {
             key={item?.id}
             onClick={() => addDining(item)}
             className="reservation-name"
-            role={`reserved_${idx}`}
+            role="article"
+            data-testid={`reserved_${idx}`}
           >
             {item.name}
           </div>

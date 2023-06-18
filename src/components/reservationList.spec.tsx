@@ -32,7 +32,7 @@ describe("reservationList", () => {
       target: { value: "Ryan Mitchel" },
     });
     fireEvent.click(screen.getByText(/Add/));
-    expect(screen.getByRole("reserved_0")).toBeInTheDocument();
+    expect(screen.getByTestId("reserved_0")).toBeInTheDocument();
     fireEvent.click(screen.getByText(/Ryan Mitchel/));
   });
 

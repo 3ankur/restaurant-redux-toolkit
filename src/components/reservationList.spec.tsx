@@ -21,28 +21,28 @@ describe("reservationList", () => {
   }
 
   it("should render without failure", () => {
-    const { getByTestId } = renderComponent();
-    expect(getByTestId("username")).toBeDefined();
-    expect(screen.getByText(/Add/));
+    renderComponent();
+    expect(screen.getByTestId("username")).toBeDefined();
+    expect(screen.getByText("Add"));
   });
 
   it("should add the new reservation", () => {
-    const { getByTestId, getByRole, getByText } = renderComponent();
-    fireEvent.change(getByTestId("username"), {
+     renderComponent();
+    fireEvent.change(screen.getByTestId("username"), {
       target: { value: "Ryan Mitchel" },
     });
     fireEvent.click(screen.getByText(/Add/));
-    expect(getByRole(/reserved_0/)).toBeInTheDocument();
-    fireEvent.click(getByText(/Ryan Mitchel/));
+    expect(screen.getByRole("reserved_0")).toBeInTheDocument();
+    fireEvent.click(screen.getByText(/Ryan Mitchel/));
   });
 
   it("should remove from reservation list after adding to dining", async () => {
-    const { getByTestId, getByRole, getByText } = renderComponent();
-    fireEvent.change(getByTestId("username"), { target: { value: "John" } });
+     renderComponent();
+    fireEvent.change(screen.getByTestId("username"), { target: { value: "John" } });
     fireEvent.click(screen.getByText(/Add/));
-    expect(getByText(/John/)).toBeInTheDocument();
+    expect(screen.getByText(/John/)).toBeInTheDocument();
 
-    fireEvent.click(getByText(/John/));
+    fireEvent.click(screen.getByText(/John/));
     expect(screen.queryByText(/John/)).toBeNull();
   });
 });
